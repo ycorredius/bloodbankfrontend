@@ -10,7 +10,7 @@ class CreateProduct extends Component {
 		}
 	}
 
-	handleChange= (event) =>{
+	handleChange = (event) =>{
 		const {name,value} = event.target
 		this.setState({
 			[name]: value
@@ -20,10 +20,11 @@ class CreateProduct extends Component {
 		const {bloodType,componentType,drawDate} = this.state
 		return (
 			<div>
+			<h1>Create New Product </h1>
 				<form>
 					<div>	
 						<label>Blood Type</label>
-						<select onChange={this.handleChange} name="componentType" id="bloodType">
+						<select onChange={this.handleChange} name="componentType" value={componentType} id="bloodType">
 							<option>PLT </option>
 							<option>RBC </option>
 							<option>Whole Blood</option>
@@ -33,8 +34,8 @@ class CreateProduct extends Component {
 					</div>
 					<br/>
 					<div>
-						<label>Component Type </label>
-						<select name="componentType" id="bloodType">
+						<label>Blood Type </label>
+						<select onChange={this.handleChange} name="bloodType" value={bloodType} id="bloodType">
 							<option>O</option>
 							<option>A</option>
 							<option>B</option>
@@ -44,8 +45,10 @@ class CreateProduct extends Component {
 					<br/>
 					<div>
 						<label>Draw Date</label>
-						<input type="date" id="dateDate"/>
+						<input type="date" name="drawDate" value={drawDate} id="dateDate" onChange={this.handleChange}/>
 					</div>
+					<br/>
+					<input type="submit" value="Create Product" />
 				</form>
 			</div>
 		);
